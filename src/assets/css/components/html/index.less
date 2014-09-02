@@ -1,0 +1,37 @@
+// change navbar margin to zero
+.navbar {
+    margin-bottom: 0;
+}
+
+// change background navbar-default
+.navbar-default {
+    background-color: #FFF;
+    border-color: #FFF;
+}
+
+// change navbar height to auto, fit to logo height
+a.navbar-brand {
+    height: auto;
+}
+a.navbar-brand > img {
+    width: 72px;
+}
+
+// see if it's work
+.navbar-nav {
+    li {
+        a {
+            text-transform: uppercase;
+            @media (min-width: 768px) {
+                padding-top: 43.5px;
+                padding-bottom: 43.5px;
+            }
+        }
+    }
+
+}
+
+// vertical center toogle menu button
+.navbar-toggle {
+    margin-top: 34.5px;
+}

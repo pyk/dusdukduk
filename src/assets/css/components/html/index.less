@@ -15,6 +15,9 @@ a.navbar-brand {
 }
 a.navbar-brand > img {
     width: 72px;
+    @media (max-width: 480px) {
+        width: 32px;
+    }
 }
 
 // see if it's work
@@ -34,6 +37,9 @@ a.navbar-brand > img {
 // vertical center toogle menu button
 .navbar-toggle {
     margin-top: 34.5px;
+    @media (max-width: 480px) {
+        margin-top: 15px;
+    }
 }
 
 // Carousel
@@ -45,4 +51,47 @@ a.navbar-brand > img {
     img {
         width: 100%;
     }
+}
+
+// cart button
+.btn-group {
+    @media (min-width: 768px) {
+        padding: 36.5px 0 0 0;
+    }
+    @media (max-width: 480px) {
+        .btn-cart {
+            text-align: right;
+            width: 100%;
+        }
+        .dropdown-menu {
+            width: 100%;
+        }
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+.btn-cart-show {
+    padding-right: 15px;
+    padding-left: 15px;
+    @media (min-width: 768px) {
+        width: 640px;
+    }
+}
+
+// display dropdown cart
+img.cart-product-img {
+    width: 72px;
+}
+
+// jumlah produk wrapper
+.table>tbody>tr>td.btn-jumlah-product-wrapper {
+    padding: 8px 0;
+
+}
+
+// adjust btn-checkout
+.btn-cart-action {
+    width: 100%;
+    margin-bottom: 15px;
 }

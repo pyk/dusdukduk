@@ -19,23 +19,18 @@ a.navbar-brand {
     height: auto;
 }
 a.navbar-brand > img {
-    width: 72px;
-    @media (max-width: 480px) {
-        width: 32px;
-    }
-    @media (max-width: 767px) {
-        width: 48px;
-    }
+    width: 32px;
 }
 
 // see if it's work
 .navbar-nav {
     li {
         a {
-            text-transform: uppercase;
+            font-weight: bold;
+
             @media (min-width: 768px) {
-                padding-top: 43.5px;
-                padding-bottom: 43.5px;
+                padding-top: 22px;
+                padding-bottom: 22px;
             }
         }
     }
@@ -67,7 +62,7 @@ a.navbar-brand > img {
 // cart button
 .btn-group {
     @media (min-width: 768px) {
-        padding: 36.5px 0 0 0;
+        padding: 16px 0;
     }
     @media (max-width: 480px) {
         .btn-cart {

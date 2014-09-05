@@ -29,8 +29,12 @@ gulp.task("views", function() {
 })
 
 // images
+var imgs = [
+    "./src/assets/images/*.*",
+    "./src/assets/images/**/*.*"
+]
 gulp.task("images", function () {
-  gulp.src("./src/assets/images/*.*")
+  gulp.src(imgs, { base: "./src/assets/images"})
     .pipe(gulp.dest("./build/assets/images/"))
 })
 // rootFile

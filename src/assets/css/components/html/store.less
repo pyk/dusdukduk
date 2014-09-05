@@ -180,3 +180,83 @@ body.store { padding-top: 70px; }
   0%   { transform: rotate(0deg);   transform: rotate(0deg); }
   100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
+
+// product previews
+.product-previews {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    overflow: hidden;
+    text-align: center;
+    margin: 0px auto 0;
+
+    .default {
+        position: relative;
+    }
+    .front-box, .side-box {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+// product editor tabs
+ul.product-editor-tabs {
+    li > a {
+        cursor: pointer;
+    }
+}
+
+// toggle button
+button.editor-collapse {
+    margin: 20px 0;
+    width: 100%;
+    text-align: left;
+}
+
+// tab front
+.tab-front {
+    h5 {
+        margin: 20px 0 0 0;
+    }
+    hr {
+        margin: 10px 0;
+    }
+
+    ul {
+        margin: 0;
+        li {
+            display: inline;
+        }
+    }
+}
+
+.colors {
+    .color-box {
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .default-color {
+        background-color: #F1F1F1;
+    }
+    .red-color {
+        background-color: #F04848;
+    }
+    .green-color {
+        background-color: #B8E986;
+    }
+}
+
+// total biaya
+.total-biaya {
+    h3 {
+        margin: 0;
+    }
+}

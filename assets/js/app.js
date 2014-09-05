@@ -10,7 +10,6 @@ app.config(["$routeProvider", "$locationProvider",
     .otherwise({
         redirectTo: "/"
     });
-
 }]);
 app.controller("ListOfProductsCtrl", ["$scope",
     function($s) {

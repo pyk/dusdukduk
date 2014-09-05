@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Store - Dusdukduk</title>
+
+        <!-- Bootstrap -->
+        <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- font awesome -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- custom style -->
+        <link href="/assets/css/main.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- dependencies -->
+        <script src="/assets/libs/angular.min.js"></script>
+        <!-- application -->
+        <script src="/assets/js/app.js"></script>
+    </head>
+    <body class="store">
+        <!-- .full-width -->
+        <div class="full-width">
+        <div class="container">
+            <div class="row">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+              <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle navbar-toggle-res collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a href="#" class="navbar-brand"><img src="/assets/images/dusdukduk-logo.jpg" alt="dusdukduk logo"></a>
+                </div>
+                <!-- cart -->
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-primary dropdown-toggle btn-cart" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        2 Items
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <div class="btn-cart-show">
+                           <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="cart-product">Product</th>
+                                        <th colspan="2">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-stripped">
+                                    <tr>
+                                        <td rowspan="3">
+                                            <img class="cart-product-img" src="http://placehold.it/800x600" alt="selected">
+                                        </td>
+                                        <td colspan="2">Chair #1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Product</td>
+                                        <td class="btn-jumlah-product-wrapper">
+                                            <button type="button" class="btn btn-xs btn-primary pull-left">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            <button type="button" class="btn btn-xs btn-primary pull-right">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rp600.000,00</td>
+                                        <td class="active">/pcs</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">
+                                            <img class="cart-product-img" src="http://placehold.it/800x600" alt="selected">
+                                        </td>
+                                        <td colspan="2">Chair #1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Product</td>
+                                        <td class="btn-jumlah-product-wrapper">
+                                            <button type="button" class="btn btn-xs btn-primary pull-left">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            <button type="button" class="btn btn-xs btn-primary pull-right">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rp600.000,00</td>
+                                        <td class="active">/pcs</td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>Total</td>
+                                        <td colspan="2">Rp1.200.000,00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="btn-cart-action clearfix">
+                                <button type="button" class="btn btn-success pull-right">
+                                    <span class="glyphicon glyphicon-ok-sign"></span>
+                                Checkout</button>
+                                <button type="button" class="btn btn-primary pull-left">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                Belanja lagi</button>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <!-- /cart -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="/store">Store</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+            </div>
+        </div>
+        </div>
+        <!-- /.full-width -->
+        <div class="full-width">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-header">
+                          <h1>Furniture <small>Bukan kardus biasa</small></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="product thumbnail">
+                            <img src="http://placehold.it/800x600" alt="thumbnail product">
+                            <div class="caption">
+                                <h3>Furniture #1</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
+                            </div>
+                        </div>
+
+                        <div class="meta-product clearfix">
+                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
+                            <p class="buy-button pull-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="fa fa-archive"></span> Buy
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="product thumbnail">
+                            <img src="http://placehold.it/800x600" alt="thumbnail product">
+                            <div class="caption">
+                                <h3>Furniture #2</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
+                            </div>
+                        </div>
+
+                        <div class="meta-product clearfix">
+                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
+                            <p class="buy-button pull-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="fa fa-archive"></span> Buy
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="product thumbnail">
+                            <img src="http://placehold.it/800x600" alt="thumbnail product">
+                            <div class="caption">
+                                <h3>Furniture #3</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
+                            </div>
+                        </div>
+
+                        <div class="meta-product clearfix">
+                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
+                            <p class="buy-button pull-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="fa fa-archive"></span> Buy
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-header">
+                          <h1>Parts <small>Bagian terkecil dari inti atom</small></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="product thumbnail">
+                            <img src="http://placehold.it/800x600" alt="thumbnail product">
+                            <div class="caption">
+                                <h3>Spec Parts #1</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
+                            </div>
+                        </div>
+
+                        <div class="meta-product clearfix">
+                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
+                            <p class="buy-button pull-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="fa fa-archive"></span> Buy
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="product thumbnail">
+                            <img src="http://placehold.it/800x600" alt="thumbnail product">
+                            <div class="caption">
+                                <h3>Spec Parts #2</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
+                            </div>
+                        </div>
+
+                        <div class="meta-product clearfix">
+                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
+                            <p class="buy-button pull-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="fa fa-archive"></span> Buy
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="product thumbnail">
+                            <img src="http://placehold.it/800x600" alt="thumbnail product">
+                            <div class="caption">
+                                <h3>Spec Parts #3</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
+                            </div>
+                        </div>
+
+                        <div class="meta-product clearfix">
+                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
+                            <p class="buy-button pull-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="fa fa-archive"></span> Buy
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="full-width">
+            <div class="container">
+                <div class="row dusdukduk-footer">
+                    <div class="col-lg-12">
+                        <p class="text-muted pull-left">
+
+                        </p>
+                        <p class="pull-right dusdukduk-footer-right text-muted">
+                            Copyright &amp; 2014 Dus Duk Duk. All Rights Reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

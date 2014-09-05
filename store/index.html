@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="dusdukduk">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,11 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <!-- dependencies -->
-        <script src="/assets/libs/angular.min.js"></script>
+        <!-- dependencies
+        <script src="/assets/libs/angular.min.js"></script>-->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>
+        <script src="https://rawgit.com/chieffancypants/angular-loading-bar/master/build/loading-bar.min.js"></script>
         <!-- application -->
         <script src="/assets/js/app.js"></script>
     </head>
@@ -133,137 +136,7 @@
         </div>
         </div>
         <!-- /.full-width -->
-        <div class="full-width">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="page-header">
-                          <h1>Furniture <small>Bukan kardus biasa</small></h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="product thumbnail">
-                            <img src="http://placehold.it/800x600" alt="thumbnail product">
-                            <div class="caption">
-                                <h3>Furniture #1</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
-                            </div>
-                        </div>
-
-                        <div class="meta-product clearfix">
-                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
-                            <p class="buy-button pull-right">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="fa fa-archive"></span> Buy
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="product thumbnail">
-                            <img src="http://placehold.it/800x600" alt="thumbnail product">
-                            <div class="caption">
-                                <h3>Furniture #2</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
-                            </div>
-                        </div>
-
-                        <div class="meta-product clearfix">
-                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
-                            <p class="buy-button pull-right">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="fa fa-archive"></span> Buy
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="product thumbnail">
-                            <img src="http://placehold.it/800x600" alt="thumbnail product">
-                            <div class="caption">
-                                <h3>Furniture #3</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
-                            </div>
-                        </div>
-
-                        <div class="meta-product clearfix">
-                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
-                            <p class="buy-button pull-right">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="fa fa-archive"></span> Buy
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="page-header">
-                          <h1>Parts <small>Bagian terkecil dari inti atom</small></h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-sm-6 col-md-4">
-                        <div class="product thumbnail">
-                            <img src="http://placehold.it/800x600" alt="thumbnail product">
-                            <div class="caption">
-                                <h3>Spec Parts #1</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
-                            </div>
-                        </div>
-
-                        <div class="meta-product clearfix">
-                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
-                            <p class="buy-button pull-right">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="fa fa-archive"></span> Buy
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="product thumbnail">
-                            <img src="http://placehold.it/800x600" alt="thumbnail product">
-                            <div class="caption">
-                                <h3>Spec Parts #2</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
-                            </div>
-                        </div>
-
-                        <div class="meta-product clearfix">
-                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
-                            <p class="buy-button pull-right">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="fa fa-archive"></span> Buy
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="product thumbnail">
-                            <img src="http://placehold.it/800x600" alt="thumbnail product">
-                            <div class="caption">
-                                <h3>Spec Parts #3</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aut, voluptas sed porro tempora aliquam doloremque praesentium deserunt possimus ex facere, impedit reprehenderit consequatur cum eaque sint, veniam quo distinctio.</p>
-                            </div>
-                        </div>
-
-                        <div class="meta-product clearfix">
-                            <p class="price pull-left"><span class="label label-primary">Start from 600K IDR</span></p>
-                            <p class="buy-button pull-right">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="fa fa-archive"></span> Buy
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ng-view></div>
         <!-- footer -->
         <div class="full-width">
             <div class="container">

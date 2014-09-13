@@ -65,3 +65,7 @@ app.controller("ProductCtrl", ["$scope",
             $s["sideBox"+x+"Green"] = true;
         };
 }]);
+app.service("chair", ["$scope",
+    function($s) {
+        return $s.chair = {}
+}])

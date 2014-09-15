@@ -68,7 +68,7 @@ app.controller("ProductCtrl", ["$scope", "Chair",
         // initalize default chair
         $s.chair = new Chair();
         $s.mode = function(mode) {
-            console.log(mode);
+            console.log(mode)
             if(mode == "classic") {
                 $s.chair.custom = false;
             } else {

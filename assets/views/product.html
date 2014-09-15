@@ -36,7 +36,16 @@
             <!-- / product previews -->
             <!-- editor panel -->
             <div class="product-editor col-md-12 col-lg-4">
-                <div class="panel panel-default">
+                <h3>Pilih Desain</h3>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active" ng-click="mode('classic')">
+                        <input type="radio" name="options" id="option1" checked> Classic
+                    </label>
+                    <label class="btn btn-primary" ng-click="mode('custom')">
+                        <input type="radio" name="options" id="option2" > Custom
+                    </label>
+                </div>
+                <div class="panel panel-default" ng-show="chair.custom">
                     <div class="panel-heading">Customize your chair</div>
                     <div class="panel-body">
                         <!-- Nav tabs -->
@@ -94,6 +103,15 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default">
+                        <input type="checkbox"> + Anti Air
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="checkbox"> + Anti Rayap
+                    </label>
                 </div>
 
                 <div class="panel panel-default">

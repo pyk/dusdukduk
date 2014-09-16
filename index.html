@@ -23,7 +23,7 @@
     <body>
         <!-- .full-width -->
         <div class="full-width">
-        <div class="container">
+        <div class="container ddd-cont">
             <div class="row">
             <nav class="navbar navbar-default" role="navigation">
               <div class="container-fluid">
@@ -35,22 +35,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a href="#" class="navbar-brand"><img src="assets/images/dusdukduk-logo.jpg" alt="dusdukduk logo"></a>
+                  <a href="#" class="navbar-brand"><img src="assets/images/dusdukduk-logo.png" alt="dusdukduk logo"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse ddd-menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="/store">Store</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right hidden-xs">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> About</a></li>
+                        <li><a href="#product"><span class="glyphicon glyphicon-th"></span> Product</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
@@ -59,105 +53,123 @@
         </div>
         </div>
         <!-- /.full-width -->
-        <!-- carousel -->
+
+        <!-- banner -->
         <div class="full-width">
-            <div id="dusdukduk-carousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#dusdukduk-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#dusdukduk-carousel" data-slide-to="1"></li>
-                    <li data-target="#dusdukduk-carousel" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img alt="First slide" src="http://33.media.tumblr.com/913b9ca07de8a526d03555b4d693b7b5/tumblr_nb1uqtIxbr1st5lhmo1_1280.jpg">
-                        <div class="carousel-caption">
-                            <h3>Sunday Market #1</h3>
-                            <p>Kita akan datang di sunday market #3</p>
+            <div class="container ddd-bg-white">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="thumbnail ddd-banner-thumb">
+                            <img src="assets/images/banner/chair-product.png" alt="New Product">
+                            <div class="caption ddd-banner-caption">
+                                <h1>NEW</h1>
+                                <h1>PRODUCT!</h1>
+                            </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <img alt="Second slide" src="http://33.media.tumblr.com/5be6a52372f622728adb07566fc1e305/tumblr_n7fgokF2Ul1st5lhmo1_1280.jpg">
-                        <div class="carousel-caption">
-                            <h3>Sunday Market #2</h3>
-                            <p>Kita akan datang di sunday market #3</p>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="ddd-banner-txt clearfix">
+                            <div class="ddd-logo">
+                                <img src="assets/images/dusdukduk-logo.png" alt="Dusdukduk logo">
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis in magnam blanditiis non omnis tempore delectus, fugiat nemo cumque nisi debitis? Maiores eaque vitae numquam enim tempore sed quo. Qui.
+                            </p>
                         </div>
                     </div>
-                    <div class="item">
-                        <img alt="Third slide" src="http://31.media.tumblr.com/d55a509993790027240311c9f611aaf8/tumblr_n0hpzpKEfE1st5lhmo1_1280.jpg">
-                        <div class="carousel-caption">
-                            <h3>Sunday Market #3</h3>
-                            <p>Kita akan datang di sunday market #3</p>
-                        </div>
-                    </div>
-
                 </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#dusdukduk-carousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#dusdukduk-carousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
             </div>
         </div>
-        <!-- /.carousel -->
-        <!-- dusdukduk-desc -->
+        <!-- /banner -->
+        <!-- slider -->
         <div class="full-width">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 dusdukduk-desc-wrapper">
-                        <blockquote class="blockquote-reverse dusdukduk-desc">
-                            <p>"Furniture alternatif berbahan dasar KARDUS ramah lingkungan, fungsional dan tentu saja unik!"</p>
-                            <footer> <cite title="Source Title">Dusdukduk</cite></footer>
-                            <a href="/store" class="btn btn-primary btn-lg dusdukduk-cta">Visit Our Store</a>
-                        </blockquote>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="ddd-slider clearfix">
+                            <div class="col-lg-7 col-md-7 col-sm-7 ddd-slider-txt">
+                                <h1>NOW</h1>
+                                <h1>AVAILABLE</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias modi dolor, ipsa. Ipsam temporibus architecto consectetur, consequuntur est minus in illo nam iusto labore autem, blanditiis, error harum quia laborum.
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 ddd-slider-img">
+                                <img src="assets/images/banner/chair-transparant.png" alt="Now Available">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /dusdukduk-desc -->
-        <!-- apa kata mereka -->
+        <!-- slider -->
+        <!-- product -->
+        <div class="full-width" id="product">
+            <div class="container">
+                <div class="row ddd-product">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="thumbnail ddd-product-thumb">
+                            <img src="assets/images/products/1.png" alt="Product">
+                            <div class="caption ddd-product-caption ddd-product-coklat">
+                                <h1>PRODUCT</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="thumbnail ddd-product-thumb">
+                            <img src="assets/images/products/2.png" alt="Product">
+                            <div class="caption ddd-product-caption ddd-product-biru">
+                                <h1>PRODUCT</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="thumbnail ddd-product-thumb">
+                            <img src="assets/images/products/3.png" alt="Product">
+                            <div class="caption ddd-product-caption ddd-product-tosca">
+                                <h1>PRODUCT</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /product -->
         <div class="full-width">
             <div class="container">
+                <div class="ddd-profile">
                 <div class="row">
-                    <div class="col-lg-12 dusdukduk-testimoni-header">
-                        <h3>Apa Kata Mereka?</h3>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <div class="ddd-profile-img">
+                            <img src="assets/images/profile.png" alt="Profile">
+                        </div>
                     </div>
-                    <div class="col-lg-6 dusdukduk-testimoni">
-                        <blockquote class="twitter-tweet" data-cards="hidden" lang="id"><p>Kardus bukan sembarang kardus milik <a href="https://twitter.com/dusdukduk">@dusdukduk</a> :) <a href="https://twitter.com/hashtag/SelfBranding2014?src=hash">#SelfBranding2014</a> <a href="https://twitter.com/hashtag/ITSSurabaya?src=hash">#ITSSurabaya</a> <a href="http://t.co/VWnXG6mMKd">pic.twitter.com/VWnXG6mMKd</a></p>&mdash; Design ITS (@DesignITS) <a href="https://twitter.com/DesignITS/status/424621221125160960">18 Januari 2014</a></blockquote>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <div class="ddd-profile-txt">
+                            <h1>MEET UP</h1>
+                            <h1>OUR SOCIAL MEDIA</h1>
+                            <p>
+                                <a href="#"><span class="fa fa-facebook"></span></a>
+                                <a href="#"><span class="fa fa-twitter"></span></a>
+                                <a href="#"><span class="fa fa-envelope"></span></a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-lg-6 dusdukduk-testimoni">
-                        <blockquote class="twitter-tweet" data-cards="hidden" lang="id"><p>Selamat &amp; sukses atas lolosnya tim <a href="https://twitter.com/dusdukduk">@dusdukduk</a> menuju PIMNAS! <a href="https://twitter.com/hashtag/PIMNAS?src=hash">#PIMNAS</a> <a href="https://twitter.com/hashtag/ITSSurabaya?src=hash">#ITSSurabaya</a> <a href="http://t.co/P1rhM9w36R">pic.twitter.com/P1rhM9w36R</a></p>&mdash; Design ITS (@DesignITS) <a href="https://twitter.com/DesignITS/status/373605907164188672">31 Agustus 2013</a></blockquote>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                    <div class="col-lg-6 dusdukduk-testimoni">
-                        <blockquote class="twitter-tweet" data-cards="hidden" lang="id"><p>Ini keren deh <a href="https://twitter.com/dusdukduk">@dusdukduk</a> delapanrius bukan kardus biasa. <a href="http://t.co/xFusneVOCE">pic.twitter.com/xFusneVOCE</a></p>&mdash; Aziz Hadi (@azizhaddi) <a href="https://twitter.com/azizhaddi/status/501203585158230016">18 Agustus 2014</a></blockquote>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                    <div class="col-lg-6 dusdukduk-testimoni">
-                        <blockquote class="twitter-tweet" data-cards="hidden" lang="id"><p>Ini kereeeen <a href="https://twitter.com/dusdukduk">@dusdukduk</a>. Yg ngintip sedikit juga keren asal matic :-) (with Ario at <a href="https://twitter.com/GrandCitySBY">@GrandcitySBY</a>) [pic] — <a href="https://t.co/SxXm9r8GG0">https://t.co/SxXm9r8GG0</a></p>&mdash; Maman F (@ayahmaman) <a href="https://twitter.com/ayahmaman/status/405623909354987520">27 November 2013</a></blockquote>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
+                </div>
                 </div>
             </div>
         </div>
-        <!-- /apa kata mereka -->
         <!-- footer -->
         <div class="full-width">
-            <div class="container">
+            <div class="container ddd-footer">
                 <div class="row dusdukduk-footer">
                     <div class="col-lg-12">
-                        <p class="text-muted pull-left">
+                       <!--  <p class="text-muted pull-left">
 
                         </p>
                         <p class="pull-right dusdukduk-footer-right text-muted">
-                            Copyright &amp; 2014 Dus Duk Duk. All Rights Reserved.
-                        </p>
+                            Copyright &copy; 2014 Dus Duk Duk. All Rights Reserved.
+                        </p> -->
                     </div>
                 </div>
             </div>

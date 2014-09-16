@@ -87,6 +87,13 @@ a.navbar-brand > img {
         font-size: 72px;
         color: white;
     }
+    @media (max-width: 400px) {
+        margin-top: -200px;
+
+        h1 {
+            font-size: 48px;
+        }
+    }
 }
 .ddd-banner-txt {
     height: 605px;
@@ -98,6 +105,23 @@ a.navbar-brand > img {
         padding: 16px;
         text-align: justify;
         margin-top: 16px;
+    }
+
+    @media (max-width: 991px) {
+        p {
+            text-align: left;
+            margin:0;
+        }
+
+        height: auto;
+    }
+
+    @media (max-width: 400px) {
+        p {
+            margin: 0;
+            padding: 0 16px 16px 16px;
+        }
+        height: auto;
     }
 }
 
@@ -113,5 +137,15 @@ a.navbar-brand > img {
 
     img {
         width: 144px;
+    }
+
+    @media (max-width: 991px) {
+        text-align: left;
+        padding: 16px;
+        float: left;
+    }
+    @media (max-width: 400px) {
+        float: none;
+        text-align: center;
     }
 }

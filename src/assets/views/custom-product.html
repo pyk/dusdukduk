@@ -1,0 +1,141 @@
+<div class="full-width" ng-controller="ProductCtrl">
+    <div class="container">
+        <div class="row">
+            <!-- product previews -->
+            <div class="col-md-12 col-lg-8">
+                <div class="product-previews">
+                    <div class="default">
+                        <img src="/assets/images/chair/dusdukduk_default.png" alt="Product Previews">
+                    </div>
+                    <div class="front-box" id="front-box-1">
+                        <img ng-show="frontBox1Red" src="/assets/images/chair/dusdukduk_front_box1_red.png" alt="Product Previews">
+                        <img ng-show="frontBox1Green" src="/assets/images/chair/dusdukduk_front_box1_green.png" alt="Product Previews">
+                    </div>
+                    <div class="front-box" id="front-box-2">
+                        <img ng-show="frontBox2Red" src="/assets/images/chair/dusdukduk_front_box2_red.png" alt="Product Previews">
+                        <img ng-show="frontBox2Green" src="/assets/images/chair/dusdukduk_front_box2_green.png" alt="Product Previews">
+                    </div>
+                    <div class="front-box" id="front-box-3">
+                        <img ng-show="frontBox3Red" src="/assets/images/chair/dusdukduk_front_box3_red.png" alt="Product Previews">
+                        <img ng-show="frontBox3Green" src="/assets/images/chair/dusdukduk_front_box3_green.png" alt="Product Previews">
+                    </div>
+                    <div class="front-box" id="front-box-4">
+                        <img ng-show="frontBox4Red" src="/assets/images/chair/dusdukduk_front_box4_red.png" alt="Product Previews">
+                        <img ng-show="frontBox4Green" src="/assets/images/chair/dusdukduk_front_box4_green.png" alt="Product Previews">
+                    </div>
+                    <div class="front-box" id="front-box-5">
+                        <img ng-show="frontBox5Red" src="/assets/images/chair/dusdukduk_front_box5_red.png" alt="Product Previews">
+                        <img ng-show="frontBox5Green" src="/assets/images/chair/dusdukduk_front_box5_green.png" alt="Product Previews">
+                    </div>
+                    <div class="side-box" id="side-box-1">
+                        <img ng-show="sideBox1Red" src="/assets/images/chair/dusdukduk_side_box1_red.png" alt="Product Previews">
+                        <img ng-show="sideBox1Green" src="/assets/images/chair/dusdukduk_side_box1_green.png" alt="Product Previews">
+                    </div>
+                </div>
+            </div>
+            <!-- / product previews -->
+            <!-- editor panel -->
+            <div class="product-editor col-md-12 col-lg-4">
+                <h3>Pilih Desain</h3>
+                <div class="selection-panel btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active" ng-click="mode('classic')">
+                        <input type="radio" name="options" id="option1" checked> Classic
+                    </label>
+                    <label class="btn btn-default" ng-click="mode('custom')">
+                        <input type="radio" name="options" id="option2" > Custom
+                    </label>
+                </div>
+                <div class="panel panel-default" ng-show="chair.custom.status">
+                    <div class="panel-heading">Customize your chair</div>
+                    <div class="panel-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs product-editor-tabs nav-justified" role="tablist" id="surfaceTabs">
+                          <li class="active"><a data-target="#front" role="tab" data-toggle="tab">Front</a></li>
+                          <li><a data-target="#side" role="tab" data-toggle="tab">Side</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active tab-front ddd-color-pane" id="front">
+                                <div class="colors clearfix">
+                                    <div ng-click="frontDefault(1)" class="color-box default-color pull-left"></div>
+                                    <div ng-click="frontRed(1)" class="color-box red-color pull-left"></div>
+                                    <div ng-click="frontGreen(1)" class="color-box green-color pull-left"></div>
+                                    <p class="text-muted">box #1</p>
+                                </div>
+                                <hr/>
+                                <div class="colors clearfix">
+                                    <div ng-click="frontDefault(2)" class="color-box default-color pull-left"></div>
+                                    <div ng-click="frontRed(2)" class="color-box red-color pull-left"></div>
+                                    <div ng-click="frontGreen(2)" class="color-box green-color pull-left"></div>
+                                    <p class="text-muted">box #2</p>
+                                </div>
+                                <hr/>
+                                <div class="colors clearfix">
+                                    <div ng-click="frontDefault(3)" class="color-box default-color pull-left"></div>
+                                    <div ng-click="frontRed(3)" class="color-box red-color pull-left"></div>
+                                    <div ng-click="frontGreen(3)" class="color-box green-color pull-left"></div>
+                                    <p class="text-muted">box #3</p>
+                                </div>
+                                <hr/>
+                                <div class="colors clearfix">
+                                    <div ng-click="frontDefault(4)" class="color-box default-color pull-left"></div>
+                                    <div ng-click="frontRed(4)" class="color-box red-color pull-left"></div>
+                                    <div ng-click="frontGreen(4)" class="color-box green-color pull-left"></div>
+                                    <p class="text-muted">box #4</p>
+                                </div>
+                                <hr/>
+                                <div class="colors clearfix">
+                                    <div ng-click="frontDefault(5)" class="color-box default-color pull-left"></div>
+                                    <div ng-click="frontRed(5)" class="color-box red-color pull-left"></div>
+                                    <div ng-click="frontGreen(5)" class="color-box green-color pull-left"></div>
+                                    <p class="text-muted">box #5</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane ddd-color-pane" id="side">
+                                <div class="colors clearfix">
+                                    <div ng-click="sideDefault(1)" class="color-box default-color pull-left"></div>
+                                    <div ng-click="sideRed(1)" class="color-box red-color pull-left"></div>
+                                    <div ng-click="sideGreen(1)" class="color-box green-color pull-left"></div>
+                                    <p class="text-muted">box #1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Utilitas tambahan</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="utilitas" ng-model="chair.utilitas.antiRayap.harga" ng-true-value="10000" ng-false-value="0"> Anti Rayap
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="utilitas" ng-model="chair.utilitas.antiAir.harga" ng-true-value="60000" ng-false-value="0"> Anti Air
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Total Biaya</div>
+                    <div class="panel-body">
+                        <div class="total-biaya pull-left">
+                            <h3>{{ changeToRupiah(chair.getHargaTotal())}}</h3>
+                        </div>
+                        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-heart"></span> Add To Cart</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- / editor panel -->
+        </div>
+    </div>
+
+</div>
+
+<script>
+  $(function () {
+    $('#surfaceTabs a:last').tab('show')
+  })
+</script>

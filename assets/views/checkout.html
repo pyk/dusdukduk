@@ -1,5 +1,21 @@
 <div class="full-width" ng-controller="CartCtrl">
-    <div class="container">
+    <div class="container" ng-show="trxSuccess">
+        <div class="row">
+            <div class="col-lg-12 ddd-success">
+                <p class="lead">Transaction Success!</p>
+                <p class="text-muted">Please check your email</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-show="trxError">
+        <div class="row">
+            <div class="col-lg-12 ddd-error">
+                <p class="lead">:( Something wrong!</p>
+                <p class="text-muted">Please try again latter</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-show="trxshow">
 
         <div class="row">
             <div class="col-lg-12">
@@ -23,19 +39,8 @@
                                  <td>{{product.nama}}</td>
                                  <td>{{ product.quantity }} Product</td>
                                  <td>{{ formatRupiah(product) }}</td>
-                                 <!-- <td class="btn-jumlah-product-wrapper">
-                                     <button type="button" class="btn btn-xs btn-primary pull-left">
-                                         <span class="glyphicon glyphicon-plus"></span>
-                                      </button>
-                                     <button type="button" class="btn btn-xs btn-primary pull-right">
-                                         <span class="glyphicon glyphicon-minus"></span>
-                                     </button>
-                                 </td> -->
+
                              </tr>
-                        <!--  <tr class="active">
-                             <td>Total</td>
-                             <td colspan="2">Rp1.200.000,00</td>
-                         </tr> -->
                      </tbody>
                  </table>
             </div>
@@ -53,29 +58,29 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  <input ng-model="buyer.email" type="email" class="form-control" id="email" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                   <label for="name">Full name</label>
-                  <input type="name" class="form-control" id="name" placeholder="Enter your name">
+                  <input ng-model="buyer.fullname" type="name" class="form-control" id="name" placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="phone" class="form-control" id="phone" placeholder="Enter your phone">
+                  <input ng-model="buyer.phone" type="phone" class="form-control" id="phone" placeholder="Enter your phone">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                   <label for="street">Street address &amp; Zip Code</label>
-                  <input type="text" class="form-control" id="street" placeholder="Enter your complete street address">
+                  <input ng-model="buyer.addr" type="text" class="form-control" id="street" placeholder="Enter your complete street address">
                 </div>
                 <div class="form-group">
                   <label for="province">Province</label>
-                  <input type="text" class="form-control" id="province" placeholder="Enter your province">
+                  <input ng-model="buyer.province" type="text" class="form-control" id="province" placeholder="Enter your province">
                 </div>
                 <div class="form-group">
                   <label for="country">Country</label>
-                  <input type="text" class="form-control" id="country" placeholder="Enter your country">
+                  <input ng-model="buyer.country" type="text" class="form-control" id="country" placeholder="Enter your country">
                 </div>
             </div>
         </div>
@@ -92,33 +97,33 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  <input ng-model="shipping.email" type="email" class="form-control" id="email" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                   <label for="name">Full name</label>
-                  <input type="name" class="form-control" id="name" placeholder="Enter your name">
+                  <input ng-model="shipping.fullname" type="name" class="form-control" id="name" placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="phone" class="form-control" id="phone" placeholder="Enter your phone">
+                  <input ng-model="shipping.phone" type="phone" class="form-control" id="phone" placeholder="Enter your phone">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                  <label for="street">Street address</label>
-                  <input type="text" class="form-control" id="street" placeholder="Enter your complete street address">
+                  <label for="street">Street address &amp; Zip Code</label>
+                  <input ng-model="shipping.addr" type="text" class="form-control" id="street" placeholder="Enter your complete street address">
                 </div>
                 <div class="form-group">
                   <label for="province">Province</label>
-                  <input type="text" class="form-control" id="province" placeholder="Enter your province">
+                  <input ng-model="shipping.province" type="text" class="form-control" id="province" placeholder="Enter your province">
                 </div>
                 <div class="form-group">
                   <label for="country">Country</label>
-                  <input type="text" class="form-control" id="country" placeholder="Enter your country">
+                  <input ng-model="shipping.country" type="text" class="form-control" id="country" placeholder="Enter your country">
                 </div>
             </div>
             <div class="col-lg-12">
-                <a href="#" class="pull-right btn btn-info">Copy from Buyer Identity</a>
+                <button ng-click="copyBuyerIdentity()" type="button" class="pull-right btn btn-info">Copy from Buyer Identity</button>
             </div>
         </div>
 
@@ -138,25 +143,11 @@
                      </thead>
                      <tbody class="table-stripped" >
                              <tr>
-                                 <td>
-                                     <img class="cart-product-img" src="{{product.foto}}" alt="{{product.nama}}">
-                                 </td>
-                                 <td>{{product.nama}}</td>
-                                 <td>{{ product.quantity }} Product</td>
-                                 <td>{{ formatRupiah(product) }}</td>
-                                 <!-- <td class="btn-jumlah-product-wrapper">
-                                     <button type="button" class="btn btn-xs btn-primary pull-left">
-                                         <span class="glyphicon glyphicon-plus"></span>
-                                      </button>
-                                     <button type="button" class="btn btn-xs btn-primary pull-right">
-                                         <span class="glyphicon glyphicon-minus"></span>
-                                     </button>
-                                 </td> -->
+                                 <td>{{tcode}}</td>
+                                 <td>{{selected.length}}</td>
+                                 <td>{{totalBiaya(selected)}}</td>
+                                 <td>*</td>
                              </tr>
-                        <!--  <tr class="active">
-                             <td>Total</td>
-                             <td colspan="2">Rp1.200.000,00</td>
-                         </tr> -->
                      </tbody>
                  </table>
             </div>
@@ -165,8 +156,8 @@
         <div class="row" style="margin-bottom: 300px;">
             <div class="col-lg-12">
                 <p class="text-muted">
-                    We will send your payment details to your email address and you just reply those email to confirm your payment. Make sure you have entered valid email address first before starting your transaction. If you have a problem, don't hestitate to contact us. </p>
-                <button type="button" class="btn btn-success pull-right" ng-click="startTransaction()"> <span class="glyphicon glyphicon-ok-sign"></span> Start transaction</button>
+                    Please check your email for the payment details. Make sure you have entered the valid email address. If you have any question, please call us. </p>
+                <button type="button" class="btn btn-success pull-right ddd-start-trx" ng-click="startTransaction()"> <span class="glyphicon glyphicon-ok-sign"></span> Start transaction</button>
             </div>
         </div>
     </div>

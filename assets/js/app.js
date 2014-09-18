@@ -15,32 +15,91 @@ app.config(["$routeProvider", "$locationProvider",
         templateUrl: "/assets/views/checkout.html",
         controller: "CartCtrl"
     })
+    .when("/success", {
+        templateUrl: "/assets/views/success.html",
+        controller: "SuccessCtrl"
+    })
     .otherwise({
         redirectTo: "/"
     });
 }]);
-app.controller("CartCtrl", ["$scope", "Cart", "Rupiah", "$http",
-    function($s, Cart, Rupiah, $h) {
+app.controller("CartCtrl", ["$scope", "Cart", "Rupiah", "$http", "transformRequestAsFormPost", "$location",
+    function($s, Cart, Rupiah, $h, transformRequestAsFormPost, $l) {
 
         $s.selected = Cart.selected;
 
         // rupiah formater
         var rupiah = new Rupiah();
         $s.formatRupiah = function(n) {
-            return rupiah.convert((n.harga + parseInt(n.antirayap) + parseInt(n.antiair)) * n.quantity);
+            n.hargaTotal = (n.harga + parseInt(n.antirayap) + parseInt(n.antiair)) * n.quantity;
+            return rupiah.convert(n.hargaTotal);
         };
 
+        $s.buyer = {};
+        $s.shipping = {};
+        $s.copyBuyerIdentity = function() {
+            console.log("test");
+            $s.shipping.email = $s.buyer.email;
+            $s.shipping.fullname = $s.buyer.fullname;
+            $s.shipping.phone = $s.buyer.phone;
+            $s.shipping.addr = $s.buyer.addr;
+            $s.shipping.province = $s.buyer.province;
+            $s.shipping.country = $s.buyer.country;
+        }
+
+        // transaction code
+        $s.tcode = Math.floor(Math.random() * 90000);
+        $s.totalBiaya = function(ss) {
+            var total = 0;
+            for (var i = 0; i < ss.length; i++) {
+                total += parseInt(ss[i].hargaTotal);
+            };
+            $s.total_biaya = rupiah.convert(total);
+            return rupiah.convert(total);
+        }
         // start transaction
+        $s.trxshow= true;
         $s.startTransaction = function() {
+            var products = [];
+            var quantitys = [];
+            for (var i = 0; i < $s.selected.length; i++) {
+                products.push($s.selected[i].kode)
+                quantitys.push($s.selected[i].quantity)
+            };
             return $h({
                 method: "POST",
                 url: "https://script.google.com/macros/s/AKfycbwYbCqm5W8oK1Ta2__oeuuUAPHyATcAtgZEgn6_TCf_ugO8gcgE/exec",
-                data: {test: "ahay"},
+                transformRequest: transformRequestAsFormPost,
+                data: {
+                    kode: $s.tcode,
+                    total_biaya: $s.total_biaya,
+                    products: products.join(","),
+                    quantitys: quantitys.join(","),
+                    buyer_email: $s.buyer.email,
+                    buyer_fullname: $s.buyer.fullname,
+                    buyer_phone: $s.buyer.phone,
+                    buyer_address: $s.buyer.addr,
+                    buyer_province: $s.buyer.province,
+                    buyer_country: $s.buyer.country,
+                    shipping_email: $s.shipping.email,
+                    shipping_fullname: $s.shipping.fullname,
+                    shipping_phone: $s.shipping.phone,
+                    shipping_address: $s.shipping.addr,
+                    shipping_province: $s.shipping.province,
+                    shipping_country: $s.shipping.country,
+                },
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            }).then(function(response){
-                console.log(response);
+            }).success(function(data, status) {
+                $s.trxSuccess = true;
+                $s.trxError = false;
+                $s.trxshow = false;
+            }).error(function(data, status) {
+                $s.trxError = true;
+                $s.trxshow= false;
+                $s.trxSuccess = false;
             })
         }
+
 }]);
 app.controller("CustomProductCtrl", ["$scope", "Chair",
     function($s, Chair) {
@@ -159,6 +218,9 @@ app.controller("ProductCtrl", ["$scope", "$routeParams", "ProductAPI", "Rupiah",
             return Cart.add(o);
         }
 }]);
+app.controller("SuccessCtrl", function(){
+
+})
 app.service("Cart", function() {
     this.selected = [];
     this.add = function(o) {
@@ -232,6 +294,87 @@ app.factory("ProductAPI", ["$http",
 
         return ProductAPI;
 }]);
+
+        // -------------------------------------------------- //
+        // -------------------------------------------------- //
+
+
+        // I provide a request-transformation method that is used to prepare the outgoing
+        // request as a FORM post instead of a JSON packet.
+        app.factory(
+            "transformRequestAsFormPost",
+            function() {
+
+                // I prepare the request data for the form post.
+                function transformRequest( data, getHeaders ) {
+
+                    var headers = getHeaders();
+
+                    headers[ "Content-type" ] = "application/x-www-form-urlencoded; charset=utf-8";
+
+                    return( serializeData( data ) );
+
+                }
+
+
+                // Return the factory value.
+                return( transformRequest );
+
+
+                // ---
+                // PRVIATE METHODS.
+                // ---
+
+
+                // I serialize the given Object into a key-value pair string. This
+                // method expects an object and will default to the toString() method.
+                // --
+                // NOTE: This is an atered version of the jQuery.param() method which
+                // will serialize a data collection for Form posting.
+                // --
+                // https://github.com/jquery/jquery/blob/master/src/serialize.js#L45
+                function serializeData( data ) {
+
+                    // If this is not an object, defer to native stringification.
+                    if ( ! angular.isObject( data ) ) {
+
+                        return( ( data == null ) ? "" : data.toString() );
+
+                    }
+
+                    var buffer = [];
+
+                    // Serialize each key in the object.
+                    for ( var name in data ) {
+
+                        if ( ! data.hasOwnProperty( name ) ) {
+
+                            continue;
+
+                        }
+
+                        var value = data[ name ];
+
+                        buffer.push(
+                            encodeURIComponent( name ) +
+                            "=" +
+                            encodeURIComponent( ( value == null ) ? "" : value )
+                        );
+
+                    }
+
+                    // Serialize the buffer and clean it up for transportation.
+                    var source = buffer
+                        .join( "&" )
+                        .replace( /%20/g, "+" )
+                    ;
+
+                    return( source );
+
+                }
+
+            }
+        );
 app.factory("Chair", function() {
 
         // create class

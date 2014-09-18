@@ -23,7 +23,7 @@
         <script src="/assets/libs/angular.min.js"></script>-->
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>
-        <script src="https://rawgit.com/chieffancypants/angular-loading-bar/master/build/loading-bar.min.js"></script>
+        <script src="/assets/libs/loading-bar.min.js"></script>
         <!-- application -->
         <script src="/assets/js/app.js"></script>
     </head>
@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a href="#" class="navbar-brand"><img src="/assets/images/dusdukduk-logo.jpg" alt="dusdukduk logo"></a>
+                  <a href="#" class="navbar-brand ddd-store-logo"><img src="/assets/images/dusdukduk-logo.jpg" alt="dusdukduk logo"></a>
                 </div>
                 <!-- cart -->
                 <div class="btn-group pull-right">
@@ -123,11 +123,10 @@
                 <!-- /cart -->
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav ddd-store-navbar">
                         <li><a href="/">Home</a></li>
                         <li class="active"><a href="/store">Store</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Custom</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
@@ -136,7 +135,9 @@
         </div>
         </div>
         <!-- /.full-width -->
+        <!-- view -->
         <div ng-view></div>
+        <!-- /view -->
         <!-- footer -->
         <div class="full-width">
             <div class="container">

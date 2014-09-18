@@ -15,11 +15,7 @@ app.config(["$routeProvider", "$locationProvider",
         redirectTo: "/"
     });
 }]);
-app.controller("ListOfProductsCtrl", ["$scope",
-    function($s) {
-
-}]);
-app.controller("ProductCtrl", ["$scope", "Chair",
+app.controller("CustomProductCtrl", ["$scope", "Chair",
     function($s, Chair) {
 
         // initalize default chair
@@ -93,6 +89,112 @@ app.controller("ProductCtrl", ["$scope", "Chair",
             $s["sideBox"+x+"Green"] = true;
         };
 }]);
+app.controller("ListOfProductsCtrl", ["$scope", "ProductAPI", "Rupiah",
+    function($s, ProductAPI, Rupiah) {
+
+        var productAPI = new ProductAPI();
+
+        // formater
+        var rupiah = new Rupiah();
+        $s.formatRupiah = function(n) {
+            return rupiah.convert(n);
+        }
+        productAPI.getAllProducts().then(function(){
+            $s.products = productAPI.products;
+            console.log($s.products);
+        })
+}]);
+app.controller("ProductCtrl", ["$scope", "$routeParams", "ProductAPI", "Rupiah",
+    function($s, $rp, ProductAPI, Rupiah) {
+
+        // get product data
+        var productAPI = new ProductAPI();
+        productAPI.getProduct($rp.id).then(function(){
+            // initialize product
+            $s.product = {};
+            $s.product = productAPI.product;
+            $s.product.quantity = 1;
+            $s.product.antiair = 0;
+            $s.product.antirayap = 0;
+            $s.product.harga = parseInt($s.product.harga);
+            $s.product.antiair = parseInt($s.product.antiair);
+            $s.product.antirayap = parseInt($s.product.antirayap);
+        })
+
+        // rupiah formater
+        var rupiah = new Rupiah();
+        $s.formatRupiah = function(n) {
+            return rupiah.convert((n.harga + parseInt(n.antirayap) + parseInt(n.antiair)) * n.quantity);
+        };
+}]);
+app.factory("ProductAPI", ["$http",
+    function($h) {
+
+        // create class
+        var Product = function() {
+            this.id = null;
+            this.kode = null;
+            this.nama = null;
+            this.foto = null;
+            this.harga = null;
+            this.deskripsi = null;
+            this.quantity = null;
+        };
+
+        var ProductAPI = function(){
+            this.products = [];
+            this.product = null;
+        };
+
+        ProductAPI.prototype.getAllProducts = function() {
+            var self = this;
+            return $h({
+                method: "GET",
+                url: "https://spreadsheets.google.com/feeds/list/1DozgM2zw2q0M7fnMg5R7tGJwUL6K3OWt3rJqxsBLMkU/od6/public/basic?hl=en_US&alt=json"
+            }).then(function(response) {
+                for (var i = 0; i < response.data.feed.entry.length; i++) {
+                    var p = new Product();
+                    // id produk
+                    var idregex = /\S{5}$/g;
+                    p.id = response.data.feed.entry[i].id.$t.match(idregex)[0]
+                    console.log(p.id);
+                    var xs = response.data.feed.entry[i].content.$t.split(", ");
+                    var regex = /\w+:\s([^&]*)/g;
+                    p.kode = xs[0].replace(/^\S+\s/, "");
+                    p.nama = xs[1].replace(/^\S+\s/, "");
+                    p.foto = xs[2].replace(/^\S+\s/, "");
+                    p.harga = xs[3].replace(/^\S+\s/, "");
+                    p.deskripsi = xs[4].replace(/^\S+\s/, "");
+                    self.products.push(p);
+                };
+                return response;
+            })
+        };
+
+        ProductAPI.prototype.getProduct = function(id) {
+            var self = this;
+            return $h({
+                method: "GET",
+                url: "https://spreadsheets.google.com/feeds/list/1DozgM2zw2q0M7fnMg5R7tGJwUL6K3OWt3rJqxsBLMkU/od6/public/basic/"+ id +"?hl=en_US&alt=json"
+            }).then(function(response) {
+                var p = new Product();
+                // id produk
+                var idregex = /\S{5}$/g;
+                p.id = response.data.entry.id.$t.match(idregex)[0];
+                var xs = response.data.entry.content.$t.split(", ");
+                var regex = /\w+:\s([^&]*)/g;
+                p.kode = xs[0].replace(/^\S+\s/, "");
+                p.nama = xs[1].replace(/^\S+\s/, "");
+                p.foto = xs[2].replace(/^\S+\s/, "");
+                p.harga = xs[3].replace(/^\S+\s/, "");
+                p.deskripsi = xs[4].replace(/^\S+\s/, "");
+                self.product = p;
+                return response;
+            })
+        };
+
+        return ProductAPI;
+}]);
 app.factory("Chair", function() {
 
         // create class
@@ -129,3 +231,21 @@ app.factory("Chair", function() {
 
         return Chair;
 });
+app.factory("Rupiah", function() {
+
+    var Rupiah = function() {};
+
+    Rupiah.prototype.convert = function(n) {
+        var rev     = parseInt(n, 10).toString().split("").reverse().join("");
+        var rev2    = "";
+        for(var i = 0; i < rev.length; i++){
+            rev2  += rev[i];
+            if((i + 1) % 3 === 0 && i !== (rev.length - 1)){
+                rev2 += ".";
+            }
+        }
+        return "Rp. " + rev2.split("").reverse().join("") + ",00";
+    };
+
+    return Rupiah;
+})

@@ -29,7 +29,7 @@
     </head>
     <body class="store">
         <!-- .full-width -->
-        <div class="full-width">
+        <div class="full-width" ng-controller="CartCtrl">
         <div class="container">
             <div class="row">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -42,13 +42,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a href="#" class="navbar-brand ddd-store-logo"><img src="/assets/images/dusdukduk-logo.jpg" alt="dusdukduk logo"></a>
+                  <a href="/" class="navbar-brand ddd-store-logo"><img src="/assets/images/dusdukduk-logo.jpg" alt="dusdukduk logo"></a>
                 </div>
                 <!-- cart -->
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-primary dropdown-toggle btn-cart" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
-                        2 Items
+                        {{ selected.length }} Items
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
@@ -60,59 +60,37 @@
                                         <th colspan="2">Description</th>
                                     </tr>
                                 </thead>
-                                <tbody class="table-stripped">
-                                    <tr>
-                                        <td rowspan="3">
-                                            <img class="cart-product-img" src="http://placehold.it/800x600" alt="selected">
-                                        </td>
-                                        <td colspan="2">Chair #1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1 Product</td>
-                                        <td class="btn-jumlah-product-wrapper">
-                                            <button type="button" class="btn btn-xs btn-primary pull-left">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-xs btn-primary pull-right">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rp600.000,00</td>
-                                        <td class="active">/pcs</td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="3">
-                                            <img class="cart-product-img" src="http://placehold.it/800x600" alt="selected">
-                                        </td>
-                                        <td colspan="2">Chair #1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1 Product</td>
-                                        <td class="btn-jumlah-product-wrapper">
-                                            <button type="button" class="btn btn-xs btn-primary pull-left">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-xs btn-primary pull-right">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rp600.000,00</td>
-                                        <td class="active">/pcs</td>
-                                    </tr>
-                                    <tr class="active">
+                                <tbody class="table-stripped" ng-repeat="product in selected">
+                                        <tr>
+                                            <td rowspan="3">
+                                                <img class="cart-product-img" src="{{product.foto}}" alt="{{product.nama}}">
+                                            </td>
+                                            <td colspan="2">{{product.nama}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ product.quantity }} Product</td>
+                                            <!-- <td class="btn-jumlah-product-wrapper">
+                                                <button type="button" class="btn btn-xs btn-primary pull-left">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                                <button type="button" class="btn btn-xs btn-primary pull-right">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                            </td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>{{ formatRupiah(product) }}</td>
+                                        </tr>
+                                   <!--  <tr class="active">
                                         <td>Total</td>
                                         <td colspan="2">Rp1.200.000,00</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                             <div class="btn-cart-action clearfix">
-                                <button type="button" class="btn btn-success pull-right">
+                                <a href="#/checkout" class="btn btn-success pull-right">
                                     <span class="glyphicon glyphicon-ok-sign"></span>
-                                Checkout</button>
+                                Checkout</a>
                                 <button type="button" class="btn btn-primary pull-left">
                                     <span class="glyphicon glyphicon-arrow-left"></span>
                                 Belanja lagi</button>
@@ -124,9 +102,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav ddd-store-navbar">
-                        <li><a href="/">Home</a></li>
-                        <li class="active"><a href="/store">Store</a></li>
-                        <li><a href="#">Custom</a></li>
+                        <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li class="active"><a href="/store"><span class="glyphicon glyphicon-shopping-cart"></span> Store</a></li>
+                        <li><a href="/#product"><span class="glyphicon glyphicon-th"></span> Product</a></li>
+                        <li><a href="/#contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->

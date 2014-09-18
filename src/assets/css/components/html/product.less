@@ -37,11 +37,39 @@
 
 // quantity form
 .ddd-produk-qty {
+    @media (max-width: 991px) {
+        margin-top: 20px;
+    }
     margin-bottom: 20px;
 }
 
 .ddd-produk-txt {
     p {
         white-space: pre-line;
+    }
+}
+
+.ddd-langsung-bayar {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.ddd-additional-coat {
+    @media (max-width: 375px) {
+        label.ddd-additional-coat-label {
+            float: left;
+            margin-left: 5px;
+        }
+    }
+}
+
+// total biaya
+.ddd-total-biaya {
+    h3 {
+        margin: 0;
+    }
+    @media (max-width: 355px) {
+        margin-bottom: 20px;
     }
 }

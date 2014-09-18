@@ -10,6 +10,5 @@ app.controller("ListOfProductsCtrl", ["$scope", "ProductAPI", "Rupiah",
         }
         productAPI.getAllProducts().then(function(){
             $s.products = productAPI.products;
-            console.log($s.products);
         })
 }]);

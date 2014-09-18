@@ -1,5 +1,5 @@
-app.controller("ProductCtrl", ["$scope", "$routeParams", "ProductAPI", "Rupiah",
-    function($s, $rp, ProductAPI, Rupiah) {
+app.controller("ProductCtrl", ["$scope", "$routeParams", "ProductAPI", "Rupiah", "Cart",
+    function($s, $rp, ProductAPI, Rupiah, Cart) {
 
         // get product data
         var productAPI = new ProductAPI();
@@ -20,4 +20,10 @@ app.controller("ProductCtrl", ["$scope", "$routeParams", "ProductAPI", "Rupiah",
         $s.formatRupiah = function(n) {
             return rupiah.convert((n.harga + parseInt(n.antirayap) + parseInt(n.antiair)) * n.quantity);
         };
+
+        $s.addToCart = function(o) {
+            $s.btnCart = "disabled";
+            $s.bayar = true;
+            return Cart.add(o);
+        }
 }]);

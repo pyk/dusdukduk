@@ -22,31 +22,32 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Utilitas tambahan</div>
+                    <div class="panel-heading">Additional Coating</div>
                     <div class="panel-body">
-                        <div class="form-group">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="utilitas" ng-model="product.antirayap" ng-true-value="10000" ng-false-value="0"> Anti Rayap
+                        <div class="form-group ddd-additional-coat">
+                            <label class="checkbox-inline ddd-additional-coat-label">
+                                <input type="checkbox" name="utilitas" ng-model="product.antirayap" ng-true-value="40000" ng-false-value="0"> Anti Termite Coating
                             </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="utilitas" ng-model="product.antiair" ng-true-value="60000" ng-false-value="0"> Anti Air
+                            <label class="checkbox-inline ddd-additional-coat-label">
+                                <input type="checkbox" name="utilitas" ng-model="product.antiair" ng-true-value="40000" ng-false-value="0"> Waterproof Coating
                             </label>
                         </div>
                     </div>
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Total Biaya</div>
+                    <div class="panel-heading">Total Price</div>
                     <div class="panel-body">
-                        <div class="total-biaya pull-left">
+                        <div class="ddd-total-biaya pull-left">
                             <h3>
                                 {{ formatRupiah(product) }}
                             </h3>
                         </div>
-                        <button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-heart"></span> Add To Cart</button>
+                        <button type="button" class="btn btn-success pull-right {{btnCart}}" ng-click="addToCart(product)"><span class="glyphicon glyphicon-heart"></span> Add To Cart</button>
                     </div>
                 </div>
-
+                <a ng-show="bayar" href="#/checkout" class="btn btn-success ddd-langsung-bayar">Let's Pay <span class="glyphicon glyphicon-arrow-right"></span></a>
+                <a ng-show="bayar" href="#" class="btn btn-info ddd-langsung-bayar"><span class="glyphicon glyphicon-arrow-left"></span> Shop More</a>
             </div>
         </div>
         <div class="row">

@@ -254,13 +254,6 @@ button.editor-collapse {
     }
 }
 
-// total biaya
-.total-biaya {
-    h3 {
-        margin: 0;
-    }
-}
-
 // logo
 a.navbar-brand.ddd-store-logo {
     img {
@@ -272,8 +265,10 @@ a.navbar-brand.ddd-store-logo {
 .ddd-store-navbar {
     li {
         a {
-            padding-top: 22.5px;
-            padding-bottom: 22.5px;
+            @media (min-width: 768px) {
+                padding-top: 22.5px;
+                padding-bottom: 22.5px;
+            }
 
         }
     }

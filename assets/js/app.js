@@ -35,7 +35,8 @@ app.controller("CartCtrl", ["$scope", "Cart", "Rupiah", "$http",
             return $h({
                 method: "POST",
                 url: "https://script.google.com/macros/s/AKfycbwYbCqm5W8oK1Ta2__oeuuUAPHyATcAtgZEgn6_TCf_ugO8gcgE/exec",
-                data: $s.selected
+                data: {test: "ahay"},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function(response){
                 console.log(response);
             })

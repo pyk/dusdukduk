@@ -100,7 +100,8 @@ gulp.task('less', function () {
  */
 var libs = [
   "./src/libs/angular/angular.min.js",
-  "./src/libs/angular/angular.min.js.map"
+  "./src/libs/angular/angular.min.js.map",
+  "./src/libs/angular-loading-bar/build/loading-bar.min.js"
   ]
 gulp.task("libs", function () {
   gulp.src(libs)

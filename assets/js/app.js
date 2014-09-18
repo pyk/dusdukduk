@@ -19,8 +19,8 @@ app.config(["$routeProvider", "$locationProvider",
         redirectTo: "/"
     });
 }]);
-app.controller("CartCtrl", ["$scope", "Cart", "Rupiah",
-    function($s, Cart, Rupiah) {
+app.controller("CartCtrl", ["$scope", "Cart", "Rupiah", "$http",
+    function($s, Cart, Rupiah, $h) {
 
         $s.selected = Cart.selected;
 
@@ -30,6 +30,16 @@ app.controller("CartCtrl", ["$scope", "Cart", "Rupiah",
             return rupiah.convert((n.harga + parseInt(n.antirayap) + parseInt(n.antiair)) * n.quantity);
         };
 
+        // start transaction
+        $s.startTransaction = function() {
+            return $h({
+                method: "POST",
+                url: "https://script.google.com/macros/s/AKfycbwYbCqm5W8oK1Ta2__oeuuUAPHyATcAtgZEgn6_TCf_ugO8gcgE/exec",
+                data: $s.selected
+            }).then(function(response){
+                console.log(response);
+            })
+        }
 }]);
 app.controller("CustomProductCtrl", ["$scope", "Chair",
     function($s, Chair) {
@@ -117,7 +127,6 @@ app.controller("ListOfProductsCtrl", ["$scope", "ProductAPI", "Rupiah",
         }
         productAPI.getAllProducts().then(function(){
             $s.products = productAPI.products;
-            console.log($s.products);
         })
 }]);
 app.controller("ProductCtrl", ["$scope", "$routeParams", "ProductAPI", "Rupiah", "Cart",
@@ -153,7 +162,6 @@ app.service("Cart", function() {
     this.selected = [];
     this.add = function(o) {
         this.selected.push(o);
-        console.log(this.selected);
     }
 })
 app.factory("ProductAPI", ["$http",
@@ -186,7 +194,6 @@ app.factory("ProductAPI", ["$http",
                     // id produk
                     var idregex = /\S{5}$/g;
                     p.id = response.data.feed.entry[i].id.$t.match(idregex)[0]
-                    console.log(p.id);
                     var xs = response.data.feed.entry[i].content.$t.split(", ");
                     var regex = /\w+:\s([^&]*)/g;
                     p.kode = xs[0].replace(/^\S+\s/, "");

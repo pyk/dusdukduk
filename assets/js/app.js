@@ -11,6 +11,10 @@ app.config(["$routeProvider", "$locationProvider",
         templateUrl: "/assets/views/product.html",
         controller: "ProductCtrl"
     })
+    .when("/checkout", {
+        templateUrl: "/assets/views/checkout.html",
+        controller: "CartCtrl"
+    })
     .otherwise({
         redirectTo: "/"
     });

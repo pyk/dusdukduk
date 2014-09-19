@@ -21,7 +21,7 @@ app.factory("ProductAPI", ["$http",
             var self = this;
             return $h({
                 method: "GET",
-                url: "https://spreadsheets.google.com/feeds/list/1DozgM2zw2q0M7fnMg5R7tGJwUL6K3OWt3rJqxsBLMkU/od6/public/basic?hl=en_US&alt=json"
+                url: "https://spreadsheets.google.com/feeds/list/1aedwBjPtnO1tfxKAKvhnh-c-vfftNB5yCJMJq2mfCpI/od6/public/basic?hl=en_US&alt=json"
             }).then(function(response) {
                 for (var i = 0; i < response.data.feed.entry.length; i++) {
                     var p = new Product();
@@ -45,7 +45,7 @@ app.factory("ProductAPI", ["$http",
             var self = this;
             return $h({
                 method: "GET",
-                url: "https://spreadsheets.google.com/feeds/list/1DozgM2zw2q0M7fnMg5R7tGJwUL6K3OWt3rJqxsBLMkU/od6/public/basic/"+ id +"?hl=en_US&alt=json"
+                url: "https://spreadsheets.google.com/feeds/list/1aedwBjPtnO1tfxKAKvhnh-c-vfftNB5yCJMJq2mfCpI/od6/public/basic/"+ id +"?hl=en_US&alt=json"
             }).then(function(response) {
                 var p = new Product();
                 // id produk

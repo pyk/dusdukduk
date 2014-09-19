@@ -43,7 +43,7 @@ app.controller("CartCtrl", ["$scope", "Cart", "Rupiah", "$http", "transformReque
             };
             return $h({
                 method: "POST",
-                url: "https://script.google.com/macros/s/AKfycbwYbCqm5W8oK1Ta2__oeuuUAPHyATcAtgZEgn6_TCf_ugO8gcgE/exec",
+                url: "https://script.google.com/macros/s/AKfycbxC8WYRy5T-3484dDRcYYQVaAp6mpglpv0QwEefbMRh-SHuMPxT/exec",
                 transformRequest: transformRequestAsFormPost,
                 data: {
                     kode: $s.tcode,
